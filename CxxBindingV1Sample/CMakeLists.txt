@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15.5)
+cmake_minimum_required(VERSION 3.1)
 project(CxxBindingV1Sample
   VERSION "1.0.0.0"
   LANGUAGES CXX)
@@ -48,29 +48,15 @@ target_compile_definitions(
 
 get_property(PROJECT_LANGUAGES GLOBAL PROPERTY ENABLED_LANGUAGES)
 
-if("C" IN_LIST PROJECT_LANGUAGES)
-  target_compile_options(
-    ${BUILD_TARGET} PRIVATE
-    $<$<COMPILE_LANGUAGE:C>:
-      ${C_FLAGS}
-      $<$<CONFIG:Release>:${C_FLAGS_RELEASE}>
-      $<$<CONFIG:Debug>:${C_FLAGS_DEBUG}>
-      $<$<CONFIG:RelWithDebInfo>:${C_FLAGS_RELWITHDEBINFO}>
-      $<$<CONFIG:MinSizeRel>:${C_FLAGS_MINSIZEREL}>
-    >)
-endif()
-
-if("CXX" IN_LIST PROJECT_LANGUAGES)
-  target_compile_options(
-    ${BUILD_TARGET} PRIVATE
-    $<$<COMPILE_LANGUAGE:CXX>:
-      ${CXX_FLAGS}
-      $<$<CONFIG:Release>:${CXX_FLAGS_RELEASE}>
-      $<$<CONFIG:Debug>:${CXX_FLAGS_DEBUG}>
-      $<$<CONFIG:RelWithDebInfo>:${CXX_FLAGS_RELWITHDEBINFO}>
-      $<$<CONFIG:MinSizeRel>:${CXX_FLAGS_MINSIZEREL}>
-    >)
-endif()
+target_compile_options(
+  ${BUILD_TARGET} PRIVATE
+  $<$<COMPILE_LANGUAGE:CXX>:
+    ${CXX_FLAGS}
+    $<$<CONFIG:Release>:${CXX_FLAGS_RELEASE}>
+    $<$<CONFIG:Debug>:${CXX_FLAGS_DEBUG}>
+    $<$<CONFIG:RelWithDebInfo>:${CXX_FLAGS_RELWITHDEBINFO}>
+    $<$<CONFIG:MinSizeRel>:${CXX_FLAGS_MINSIZEREL}>
+  >)
 
 if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.13)
   target_link_options(

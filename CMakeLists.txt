@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.2)
+cmake_minimum_required(VERSION 3.1)
 project(CxxBinding
   VERSION "1.0.0.0"
   LANGUAGES CXX)
@@ -101,8 +101,6 @@ if(MSVC)
   list(APPEND CXX_FLAGS_DEBUG "/Oi" "/Oy")
   list(APPEND CXX_FLAGS_RELEASE "/Ob2" "/Oi" "/Ot" "/Ox" "/Oy" "/GL")
   list(APPEND CXX_FLAGS_MINSIZEREL "/Os")
-
-  list(APPEND EXE_LINKER_FLAGS_RELEASE "/LTCG")
 else()
   set(GNU_CLANG_COMMON_WARNING_FLAGS
     "-Wall"
@@ -409,6 +407,5 @@ else()
 endif()
 
 
-add_subdirectory(CxxHelloWorld)
 add_subdirectory(CxxBindingV1Sample)
 add_subdirectory(CxxBindingV2Sample)
