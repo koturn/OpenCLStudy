@@ -409,3 +409,4 @@ endif()
 
 add_subdirectory(CxxBindingV1Sample)
 add_subdirectory(CxxBindingV2Sample)
+add_subdirectory(CxxEnumeratePlatformsDevices)
