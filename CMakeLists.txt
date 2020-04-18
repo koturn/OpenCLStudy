@@ -58,6 +58,15 @@ ExternalProject_Add(
   INSTALL_COMMAND ""
   LOG_DOWNLOAD ON)
 
+ExternalProject_Add(
+  ArgumentParser
+  GIT_REPOSITORY https://github.com/koturn/ArgumentParser
+  PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/ExternalProjects
+  CONFIGURE_COMMAND ""
+  BUILD_COMMAND ""
+  INSTALL_COMMAND ""
+  LOG_DOWNLOAD ON)
+
 
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "i686.*|i386.*|x86.*")
   set(SYSTEM_PROCESSOR_IS_X86 TRUE)
@@ -418,3 +427,4 @@ add_subdirectory(CxxMultiplyUseHostPtr)
 add_subdirectory(CxxMultiplyAllocHostPtr)
 add_subdirectory(CxxMultiplyKernelFunctor)
 add_subdirectory(CxxMultiplyUseDefault)
+add_subdirectory(CxxOfflineCompiler)
