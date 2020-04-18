@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.3)
 project(CxxBindingV2Sample
   VERSION "1.0.0.0"
   LANGUAGES CXX)
@@ -13,27 +13,28 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 
+find_package(OpenCL REQUIRED)
+
+include(../cmake/GenerateCLHppWrapperHeader.cmake)
+set(CLHPP_WRAPPER_HEADER "${CMAKE_CURRENT_BINARY_DIR}/opencl.hpp")
+generate_clhpp_wrapper_header(
+  ${CLHPP_WRAPPER_HEADER}
+  ENABLE_EXCEPTIONS ON
+  MINIMUM_OPENCL_VERSION 200
+  TARGET_OPENCL_VERSION 200)
+
 file(GLOB SRCS *.c *.cpp *.cxx *.cc *.h *.hpp *.hxx *.hh *.inl)
 add_executable(
   ${BUILD_TARGET}
-  ${SRCS})
+  ${SRCS}
+  ${CLHPP_WRAPPER_HEADER})
 
-find_package(OpenCL REQUIRED)
 target_include_directories(${BUILD_TARGET} PRIVATE ${OpenCL_INCLUDE_DIRS})
 target_link_libraries(${BUILD_TARGET} PRIVATE ${OpenCL_LIBRARIES})
-
 
 ExternalProject_Get_Property(OpenCL-CLHPP SOURCE_DIR)
 target_include_directories(${BUILD_TARGET} PRIVATE "${SOURCE_DIR}/include")
 add_dependencies(${BUILD_TARGET} OpenCL-CLHPP)
-
-
-include(../cmake/GenerateCLHppWrapperHeader.cmake)
-generate_clhpp_wrapper_header(
-  ${CMAKE_CURRENT_BINARY_DIR}/opencl.hpp
-  ENABLE_EXCEPTIONS ON
-  MINIMUM_OPENCL_VERSION 200
-  TARGET_OPENCL_VERSION 200)
 
 
 target_compile_definitions(
