@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-#include <opencl.hpp>
+#include <config/opencl.hpp>
 
 
 const char helloStr[] = "__kernel void hello(void) { }";

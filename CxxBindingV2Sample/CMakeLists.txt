@@ -16,7 +16,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(OpenCL REQUIRED)
 
 include(../cmake/GenerateCLHppWrapperHeader.cmake)
-set(CLHPP_WRAPPER_HEADER "${CMAKE_CURRENT_BINARY_DIR}/opencl.hpp")
+set(CLHPP_WRAPPER_HEADER "${CMAKE_CURRENT_BINARY_DIR}/config/opencl.hpp")
 generate_clhpp_wrapper_header(
   ${CLHPP_WRAPPER_HEADER}
   ENABLE_EXCEPTIONS ON

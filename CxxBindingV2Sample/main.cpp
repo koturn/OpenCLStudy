@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include <opencl.hpp>
+#include <config/opencl.hpp>
 
 
 const int numElements = 32;

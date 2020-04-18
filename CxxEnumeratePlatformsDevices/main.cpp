@@ -1,9 +1,9 @@
+#include <cstdlib>
+#include <iostream>
 #include <string>
 #include <vector>
-#include <iostream>
-#include <cstdlib>
 
-#include <opencl.hpp>
+#include <config/opencl.hpp>
 
 
 int
