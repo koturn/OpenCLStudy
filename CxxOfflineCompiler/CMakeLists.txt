@@ -32,11 +32,6 @@ target_include_directories(${BUILD_TARGET} PRIVATE "${SOURCE_DIR}/include")
 add_dependencies(${BUILD_TARGET} ArgumentParser)
 
 
-configure_file(
-  kernel.cl
-  ${CMAKE_CURRENT_BINARY_DIR}/kernel.cl
-  COPYONLY)
-
 include(../cmake/GenerateCLHppWrapperHeader.cmake)
 generate_clhpp_wrapper_header(
   ${CMAKE_CURRENT_BINARY_DIR}/config/opencl.hpp
