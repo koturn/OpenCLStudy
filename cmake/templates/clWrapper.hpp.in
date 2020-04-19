@@ -6,13 +6,6 @@
 #endif  // __MSYS__
 
 
-#ifndef CL_SILENCE_DEPRECATION
-#  cmakedefine CL_SILENCE_DEPRECATION
-#endif  // CL_SILENCE_DEPRECATION
-#ifndef __CL_ENABLE_EXCEPTIONS
-#  cmakedefine __CL_ENABLE_EXCEPTIONS
-#endif  // __CL_ENABLE_EXCEPTIONS
-
 #ifndef CL_USE_DEPRECATED_OPENCL_1_0_APIS
 #  cmakedefine CL_USE_DEPRECATED_OPENCL_1_0_APIS
 #endif  // CL_USE_DEPRECATED_OPENCL_1_0_APIS
@@ -31,6 +24,30 @@
 #ifndef CL_USE_DEPRECATED_OPENCL_2_2_APIS
 #  cmakedefine CL_USE_DEPRECATED_OPENCL_2_2_APIS
 #endif  // CL_USE_DEPRECATED_OPENCL_2_2_APIS
+
+#ifndef __CL_ENABLE_EXCEPTIONS
+#  cmakedefine __CL_ENABLE_EXCEPTIONS
+#endif  // __CL_ENABLE_EXCEPTIONS
+#ifndef CL_SILENCE_DEPRECATION
+#  cmakedefine CL_SILENCE_DEPRECATION
+#endif  // CL_SILENCE_DEPRECATION
+
+#ifndef __NO_STD_VECTOR
+#  cmakedefine __NO_STD_VECTOR
+#endif  // __NO_STD_VECTOR
+#ifndef __NO_STD_STRING
+#  cmakedefine __NO_STD_STRING
+#endif  // __NO_STD_STRING
+#ifndef __CL_USER_OVERRIDE_ERROR_STRINGS
+#  cmakedefine __CL_USER_OVERRIDE_ERROR_STRINGS
+#endif  // __CL_USER_OVERRIDE_ERROR_STRINGS
+
+#ifndef USE_DX_INTEROP
+#  cmakedefine USE_DX_INTEROP
+#endif  // USE_DX_INTEROP
+#ifndef USE_CL_DEVICE_FISSION
+#  cmakedefine USE_CL_DEVICE_FISSION
+#endif  // USE_CL_DEVICE_FISSION
 
 
 #if (defined(__GNUC__) && (__GNUC__ > 4 || __GNUC__ == 4 && __GNUC_MINOR__ >= 6))
